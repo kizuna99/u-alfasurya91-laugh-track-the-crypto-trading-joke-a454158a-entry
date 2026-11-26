@@ -33,6 +33,7 @@ def validate(text: str) -> None:
     assert encoded.decode("utf-8") == text, "gate: UTF-8 round-trip"
     assert len(encoded) <= MAX_CHARS, "gate: encoded bytes within limit"
     assert all(ord(ch) >= 32 for ch in text), "gate: no control characters"
+    assert text.isascii(), "gate: ASCII only"
 
 
 def main() -> None:
